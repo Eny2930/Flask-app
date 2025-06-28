@@ -1,0 +1,12 @@
+name: CI
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: kali-linux-latest
+    steps:
+      - uses: actions/check/checkout@v2
+      - name: Build Docker Image
+        run: docker build -t flask-app .
